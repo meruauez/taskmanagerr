@@ -9,7 +9,7 @@ import (
 var users = make(map[int]models.User)
 var userIDCounter = 1
 
-// GET /users
+
 func GetUsers(w http.ResponseWriter, r *http.Request) {
 	userList := make([]models.User, 0, len(users))
 	for _, user := range users {
@@ -18,7 +18,7 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(userList)
 }
 
-// POST /users
+
 func CreateUser(w http.ResponseWriter, r *http.Request) {
 	var user models.User
 	json.NewDecoder(r.Body).Decode(&user)
