@@ -9,7 +9,6 @@ import (
 var projects = make(map[int]models.Project)
 var projectIDCounter = 1
 
-// GET /projects
 func GetProjects(w http.ResponseWriter, r *http.Request) {
 	projectList := make([]models.Project, 0, len(projects))
 	for _, project := range projects {
@@ -18,7 +17,7 @@ func GetProjects(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(projectList)
 }
 
-// POST /projects
+
 func CreateProject(w http.ResponseWriter, r *http.Request) {
 	var project models.Project
 	json.NewDecoder(r.Body).Decode(&project)
